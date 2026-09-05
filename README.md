@@ -205,3 +205,25 @@ Auth uses JWT rather than OAuth. The Haversine helper and CSV export are covered
 checks (a ~111 m point resolves to ~111.2 m; a ~1.4 km point exceeds any sane radius). The full
 flow — register → login → create event → scan → geofence pass/fail → duplicate rejected → CSV
 export — has been verified end to end against a live MongoDB instance.
+
+---
+
+## 👨‍💻 Author
+
+**Krishiv Sharma**
+
+B.Tech CSE — Cybersecurity
+
+Interested in:
+
+**Cybersecurity • Software Engineering • AI • Threat Detection**
+
+---
+
+<div align="center">
+
+Built with a focus on **full-stack engineering • geolocation • secure auth**
+
+⭐ If you found GATE interesting, consider starring the repository.
+
+</div>
