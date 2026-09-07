@@ -5,6 +5,10 @@
 **QR-based, geo-verified attendance for events and classes.**
 Scan the event QR, the browser captures your live GPS fix, and attendance is recorded **only if you're physically inside the venue's geofence.** One check-in per person, enforced at the database level.
 
+### [▶ Live demo](https://gate-geo-attendance-tracking-engine.vercel.app)
+
+<sub>Frontend on Vercel · API on Render (free tier — first request after idle can take ~50s to wake)</sub>
+
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=nodedotjs&logoColor=white)
