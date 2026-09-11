@@ -24,7 +24,7 @@ Scan the event QR, the browser captures your live GPS fix, and attendance is rec
 
 ---
 
-## Overview
+## 🧭 Overview
 
 GATE is a full-stack MERN application that makes proxy attendance impossible. An **organizer**
 creates an event with a map location and a geofence radius; the server mints a unique QR code
@@ -36,7 +36,8 @@ Organizers get a dashboard with per-event stats, live search, and one-click CSV 
 
 ---
 
-## Features
+<a name="features"></a>
+## ✨ Features
 
 | | |
 |---|---|
@@ -52,7 +53,8 @@ Organizers get a dashboard with per-event stats, live search, and one-click CSV 
 
 ---
 
-## Screenshots
+<a name="screenshots"></a>
+## 📸 Screenshots
 
 | Landing | How it works |
 |---|---|
@@ -72,7 +74,8 @@ Organizers get a dashboard with per-event stats, live search, and one-click CSV 
 
 ---
 
-## Tech stack
+<a name="tech-stack"></a>
+## 🛠️ Tech stack
 
 | Layer | Stack |
 |---|---|
@@ -83,7 +86,8 @@ Organizers get a dashboard with per-event stats, live search, and one-click CSV 
 
 ---
 
-## How it works
+<a name="how-it-works"></a>
+## ⚙️ How it works
 
 1. An **organizer** registers, logs in, and creates an event with venue, date/time, GPS
    coordinates (drop the pin on the map or use "Use my location"), and a geofence radius.
@@ -100,16 +104,17 @@ Organizers get a dashboard with per-event stats, live search, and one-click CSV 
 
 ---
 
-## Getting started
+<a name="getting-started"></a>
+## 🚀 Getting started
 
-### Prerequisites
+### ✅ Prerequisites
 
 - **Node.js 18+**
 - A **MongoDB connection string** — a free [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
   M0 cluster works. Create a DB user, and under **Network Access** allow `0.0.0.0/0` for a
   dev project.
 
-### 1 · Backend
+### 🖥️ 1 · Backend
 
 ```bash
 cd backend
@@ -124,7 +129,7 @@ npm run dev               # http://localhost:5000
 | `JWT_SECRET` | any long random string |
 | `PORT` | `5000` |
 
-### 2 · Frontend
+### 💻 2 · Frontend
 
 ```bash
 cd frontend
@@ -133,7 +138,7 @@ npm install
 npm run dev               # http://localhost:5173
 ```
 
-### 3 · Try it
+### 🧪 3 · Try it
 
 Open http://localhost:5173 and register two accounts (use a second browser profile or an
 incognito window for the attendee):
@@ -145,7 +150,7 @@ incognito window for the attendee):
 
 ---
 
-## Project structure
+## 🗂️ Project structure
 
 ```
 backend/
@@ -166,7 +171,8 @@ frontend/
 
 ---
 
-## API reference
+<a name="api-reference"></a>
+## 🔌 API reference
 
 | Method | Route | Auth | Purpose |
 |---|---|---|---|
@@ -183,7 +189,7 @@ frontend/
 | `GET` | `/api/attendance/:id?search=` | organizer | attendee list for an event |
 | `GET` | `/api/attendance/:id/export` | organizer | CSV download |
 
-### Data model
+### 🗃️ Data model
 
 - **User** — `name, email, passwordHash, role, registrationId`
 - **Event** — `title, description, venue, date, time, location{lat,lng}, geofenceRadius, organizer, qrToken`
@@ -192,7 +198,8 @@ frontend/
 
 ---
 
-## Deployment
+<a name="deployment"></a>
+## ☁️ Deployment
 
 | Part | Where | Env vars |
 |---|---|---|
@@ -203,7 +210,7 @@ Test the deployed link on a real phone — webcam and GPS behaviour differ from 
 
 ---
 
-## Notes
+## 📝 Notes
 
 Auth uses JWT rather than OAuth. The Haversine helper and CSV export are covered by standalone
 checks (a ~111 m point resolves to ~111.2 m; a ~1.4 km point exceeds any sane radius). The full
