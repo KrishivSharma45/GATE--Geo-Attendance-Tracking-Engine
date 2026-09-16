@@ -15,6 +15,7 @@ Scan the event QR, the browser captures your live GPS fix, and attendance is rec
 ![Express](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)
 ![Leaflet](https://img.shields.io/badge/Leaflet-1.9-199900?logo=leaflet&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [Features](#features) · [Screenshots](#screenshots) · [Tech stack](#tech-stack) · [How it works](#how-it-works) · [Getting started](#getting-started) · [API reference](#api-reference) · [Deployment](#deployment)
 
@@ -162,7 +163,7 @@ backend/
     utils/         geo (Haversine), qr, csv
 frontend/
   src/
-    pages/         Landing, Login, Register, dashboards, ScanPage
+    pages/          Landing, Login, Register, dashboards, ScanPage
     components/     Navbar, PrivateRoute, GeoMap, Reveal
     context/        AuthContext
     api/            axios instance
