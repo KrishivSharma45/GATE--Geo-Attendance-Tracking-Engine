@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import { connectDB } from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import eventRoutes from './routes/eventRoutes.js';
@@ -18,6 +19,11 @@ app.use('/api/events', eventRoutes);
 app.use('/api/attendance', attendanceRoutes);
 
 app.get('/', (req, res) => res.json({ status: 'ok', service: 'attendance-backend' }));
+
+app.get('/api/health', (req, res) => {
+  const dbStates = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+  res.json({ status: 'ok', db: dbStates[mongoose.connection.readyState] || 'unknown' });
+});
 
 app.use((req, res) => res.status(404).json({ message: `No route for ${req.method} ${req.originalUrl}` }));
 
