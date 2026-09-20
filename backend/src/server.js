@@ -19,6 +19,8 @@ app.use('/api/attendance', attendanceRoutes);
 
 app.get('/', (req, res) => res.json({ status: 'ok', service: 'attendance-backend' }));
 
+app.use((req, res) => res.status(404).json({ message: `No route for ${req.method} ${req.originalUrl}` }));
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
