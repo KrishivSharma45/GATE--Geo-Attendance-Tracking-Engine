@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext.jsx';
 export default function Register() {
   const [form, setForm] = useState({ name: '', email: '', password: '', role: 'attendee' });
   const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -15,13 +16,16 @@ export default function Register() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (submitting) return;
     setError('');
+    setSubmitting(true);
     try {
       const { data } = await api.post('/auth/register', form);
       login(data.token, data.user);
       navigate(data.user.role === 'organizer' ? '/dashboard' : '/events');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
+      setSubmitting(false);
     }
   }
 
@@ -102,7 +106,9 @@ export default function Register() {
             <option value="attendee">Attendee</option>
             <option value="organizer">Organizer</option>
           </select>
-          <button type="submit">Register</button>
+          <button type="submit" disabled={submitting}>
+            {submitting ? 'Creating account…' : 'Register'}
+          </button>
         </form>
         {error && <p className="error">{error}</p>}
         <p className="auth-switch">

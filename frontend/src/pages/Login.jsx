@@ -7,18 +7,22 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (submitting) return;
     setError('');
+    setSubmitting(true);
     try {
       const { data } = await api.post('/auth/login', { email, password });
       login(data.token, data.user);
       navigate(data.user.role === 'organizer' ? '/dashboard' : '/events');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
+      setSubmitting(false);
     }
   }
 
@@ -86,7 +90,9 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Login</button>
+          <button type="submit" disabled={submitting}>
+            {submitting ? 'Logging in…' : 'Login'}
+          </button>
         </form>
         {error && <p className="error">{error}</p>}
         <p className="auth-switch">
